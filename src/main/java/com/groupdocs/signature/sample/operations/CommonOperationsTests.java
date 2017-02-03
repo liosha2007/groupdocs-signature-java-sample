@@ -33,7 +33,7 @@ public class CommonOperationsTests {
         SignOptions signOptions = new PdfSignImageOptions(getImagesPath("signature.jpg"));
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testGetSourceDocumentFromAbsolutePath");
+        saveOptions.setOutputFileName("co_testGetSourceDocumentFromAbsolutePath.pdf");
         // sign document with image
         String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -53,7 +53,7 @@ public class CommonOperationsTests {
         SignOptions signOptions = new PdfSignImageOptions("signature.jpg");
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testGetSourceDocumentFromRelativePath");
+        saveOptions.setOutputFileName("co_testGetSourceDocumentFromRelativePath.pdf");
 
         // sign document
         String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
@@ -71,7 +71,7 @@ public class CommonOperationsTests {
         // setup image signature options
         SignOptions signOptions = new PdfSignImageOptions("http://groupdocs.com/images/banner/carousel2/conversion.png");
         // save options
-        SaveOptions saveOptions = new SaveOptions(OutputType.String, "co_testGetSourceDocumentFromUri");
+        SaveOptions saveOptions = new SaveOptions(OutputType.String, "co_testGetSourceDocumentFromUri.pdf");
         // sign document with image
         String signedPath = handler.<String>sign("https://www.adobe.com/content/dam/Adobe/en/feature-details/acrobatpro/pdfs/combine-multiple-documents-into-one-pdf-file.pdf", signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -88,7 +88,7 @@ public class CommonOperationsTests {
         // setup image signature options
         SignOptions signOptions = new PdfSignImageOptions("http://groupdocs.com/images/banner/carousel2/conversion.png");
         // save options
-        SaveOptions saveOptions = new SaveOptions(OutputType.String, "co_testGetSourceDocumentFromStream");
+        SaveOptions saveOptions = new SaveOptions(OutputType.String, "co_testGetSourceDocumentFromStream.pdf");
         InputStream fileStream = new FileInputStream(getStoragePath("test.pdf"));
         // sign document with image
         String signedPath = handler.<String>sign(fileStream, signOptions, saveOptions);
@@ -134,7 +134,7 @@ public class CommonOperationsTests {
         // specify save options
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testOpenPasswordProtectedDocuments");
+        saveOptions.setOutputFileName("co_testOpenPasswordProtectedDocuments.pdf");
         // sign document
         String signedPath = handler.<String>sign("test.xls", signOptions, loadOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -156,7 +156,7 @@ public class CommonOperationsTests {
         loadOptions.setPassword("1234567890");
         // specify save options
         CellsSaveOptions saveOptions = new CellsSaveOptions(OutputType.String);
-        saveOptions.setOutputFileName("co_testSaveSignedDocumentsWithDifferentFileFormat");
+        saveOptions.setOutputFileName("co_testSaveSignedDocumentsWithDifferentFileFormat.pdf");
         saveOptions.setFileFormat(CellsSaveFileFormat.ODS);
         // sign document
         String signedPath = handler.<String>sign("test.xls", signOptions, loadOptions, saveOptions);
@@ -178,7 +178,7 @@ public class CommonOperationsTests {
         // specify save options
         CellsSaveOptions saveOptions = new CellsSaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testSaveSignedDocumentsWithDifferentFileName");
+        saveOptions.setOutputFileName("co_testSaveSignedDocumentsWithDifferentFileName.pdf");
         // sign document
         String signedPath = handler.<String>sign("test.xls", signOptions, loadOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -217,7 +217,7 @@ public class CommonOperationsTests {
         collection.add(signDigitalOptions);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testSetupMultipleSignatureOptions");
+        saveOptions.setOutputFileName("co_testSetupMultipleSignatureOptions.pdf");
         // sign document
         String signedPath = handler.<String>sign("test.pdf", collection, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -262,7 +262,7 @@ public class CommonOperationsTests {
         // sign document
         String signedPath = handler.<String>sign("test.pdf", collection, saveOptions);
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testImposePdfDigitalSignatureWithTextSignatureAboveAndUnderSignatureArea");
+        saveOptions.setOutputFileName("co_testImposePdfDigitalSignatureWithTextSignatureAboveAndUnderSignatureArea.pdf");
         System.out.println("Signed file path is: " + signedPath);
     }
 }

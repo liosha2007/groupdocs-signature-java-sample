@@ -38,6 +38,7 @@ public class TestRunner {
 
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString());
+            failure.getException().printStackTrace();
         }
 
         System.out.println(String.format("=== SUCCESS: %d, FAIL: %d, IGNORE: %d ===", result.getRunCount(), result.getFailureCount(), result.getIgnoreCount()));
