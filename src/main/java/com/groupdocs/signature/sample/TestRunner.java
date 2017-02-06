@@ -78,8 +78,8 @@ public class TestRunner {
         final java.io.File cp = new java.io.File(CERTIFICATES_PATH);
         final java.io.File lcp = new java.io.File(LICENSE_PATH);
         if (!lcp.exists()) {
-            LICENSE_PATH = System.getenv("GROUPDOCS_TOTAL");
-            System.out.println("License file does not exists! Using license from %GROUPDOCS_TOTAL% ...");
+            LICENSE_PATH = System.getenv("GROUPDOCS_SIGNATURE");
+            System.out.println("License file does not exists! Using license from %GROUPDOCS_SIGNATURE% ...");
         }
         if ((!sp.exists() && !sp.mkdirs()) || (!op.exists() && !op.mkdirs()) || (!ip.exists() && !ip.mkdirs()) || (!cp.exists() && !cp.mkdirs())) {
             System.err.println("Can't create data directories!!!");

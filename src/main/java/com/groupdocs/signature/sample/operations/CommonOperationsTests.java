@@ -22,6 +22,7 @@ import static com.groupdocs.signature.sample.TestRunner.*;
  */
 public class CommonOperationsTests {
 
+    @Ignore
     @Test
     public void testGetSourceDocumentFromAbsolutePath() {
         // setup Signature configuration
@@ -134,9 +135,9 @@ public class CommonOperationsTests {
         // specify save options
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testOpenPasswordProtectedDocuments.pdf");
+        saveOptions.setOutputFileName("co_testOpenPasswordProtectedDocuments.xls");
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, loadOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, loadOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -156,10 +157,10 @@ public class CommonOperationsTests {
         loadOptions.setPassword("1234567890");
         // specify save options
         CellsSaveOptions saveOptions = new CellsSaveOptions(OutputType.String);
-        saveOptions.setOutputFileName("co_testSaveSignedDocumentsWithDifferentFileFormat.pdf");
+        saveOptions.setOutputFileName("co_testSaveSignedDocumentsWithDifferentFileFormat.ods");
         saveOptions.setFileFormat(CellsSaveFileFormat.ODS);
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, loadOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, loadOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -178,9 +179,9 @@ public class CommonOperationsTests {
         // specify save options
         CellsSaveOptions saveOptions = new CellsSaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testSaveSignedDocumentsWithDifferentFileName.pdf");
+        saveOptions.setOutputFileName("co_testSaveSignedDocumentsWithDifferentFileName.xls");
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, loadOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, loadOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -209,7 +210,7 @@ public class CommonOperationsTests {
         // add to collection
         collection.add(signImageOptions);
         // specify digital options
-        PdfSignDigitalOptions signDigitalOptions = new PdfSignDigitalOptions(new FileInputStream(getStoragePath("test.pfx")));
+        PdfSignDigitalOptions signDigitalOptions = new PdfSignDigitalOptions(new FileInputStream(getCertificatePath("test.pfx")));
         signDigitalOptions.setPassword("1234567890");
         signDigitalOptions.setVerticalAlignment(VerticalAlignment.Bottom);
         signDigitalOptions.setHorizontalAlignment(HorizontalAlignment.Center);
@@ -219,7 +220,7 @@ public class CommonOperationsTests {
         saveOptions.setOutputType(OutputType.String);
         saveOptions.setOutputFileName("co_testSetupMultipleSignatureOptions.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", collection, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), collection, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -243,7 +244,7 @@ public class CommonOperationsTests {
         // add to collection
         collection.add(signTextOptionsFirst);
         // specify digital options
-        PdfSignDigitalOptions signDigitalOptions = new PdfSignDigitalOptions(new FileInputStream(getStoragePath("test.pfx")));
+        PdfSignDigitalOptions signDigitalOptions = new PdfSignDigitalOptions(new FileInputStream(getCertificatePath("test.pfx")));
         signDigitalOptions.setPassword("1234567890");
         signDigitalOptions.setReason("Any reason");
         signDigitalOptions.setLocation("Some location");
