@@ -570,6 +570,7 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
+    @Ignore
     @Test
     public void testTextVerificationOfPDFDocument() {
         // setup Signature configuration

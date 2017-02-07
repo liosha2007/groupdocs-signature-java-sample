@@ -36,9 +36,9 @@ public class ImageOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSignCellsDocumentWithImageSignature");
+        saveOptions.setOutputFileName("io_testSignCellsDocumentWithImageSignature.xls");
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -53,7 +53,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options
-        CellsSignImageOptions signOptions = new CellsSignImageOptions("signature.jpg");
+        CellsSignImageOptions signOptions = new CellsSignImageOptions(getImagesPath("signature.jpg"));
         // specify horizontal alignment
         signOptions.setHorizontalAlignment(HorizontalAlignment.Center);
         // specify vertical alignment
@@ -64,9 +64,9 @@ public class ImageOperationsTests {
         signOptions.getMargin().setLeft(20);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnDocumentPage");
+        saveOptions.setOutputFileName("io_testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnDocumentPage.xls");
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -81,7 +81,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options
-        PdfSignImageOptions signOptions = new PdfSignImageOptions("signature.jpg");
+        PdfSignImageOptions signOptions = new PdfSignImageOptions(getImagesPath("signature.jpg"));
         // image position
         signOptions.setLeft(100);
         signOptions.setTop(100);
@@ -90,9 +90,9 @@ public class ImageOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSignPDFDocumentsExamples");
+        saveOptions.setOutputFileName("io_testSignPDFDocumentsExamples.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -107,7 +107,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options
-        PdfSignImageOptions signOptions = new PdfSignImageOptions("signature.jpg");
+        PdfSignImageOptions signOptions = new PdfSignImageOptions(getImagesPath("signature.jpg"));
         // specify horizontal alignment to the right
         signOptions.setHorizontalAlignment(HorizontalAlignment.Right);
         // specify vertical alignment
@@ -118,9 +118,9 @@ public class ImageOperationsTests {
         signOptions.getMargin().setLeft(20);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnPdfDocumentPage");
+        saveOptions.setOutputFileName("io_testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnPdfDocumentPage.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -135,7 +135,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options
-        PdfSignImageOptions signOptions = new PdfSignImageOptions("signature.jpg");
+        PdfSignImageOptions signOptions = new PdfSignImageOptions(getImagesPath("signature.jpg"));
         // specify Size
         signOptions.setHeight(25);
         signOptions.setWidth(25);
@@ -149,9 +149,9 @@ public class ImageOperationsTests {
         signOptions.setLocationMeasureType(MeasureType.Percents);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSpecifyAdjustmentSizeMarginsAndIntentsOfImageSignature");
+        saveOptions.setOutputFileName("io_testSpecifyAdjustmentSizeMarginsAndIntentsOfImageSignature.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -166,7 +166,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options with relative path - image file stores in config.ImagesPath folder
-        SlidesSignImageOptions signOptions = new SlidesSignImageOptions("signature.jpg");
+        SlidesSignImageOptions signOptions = new SlidesSignImageOptions(getImagesPath("signature.jpg"));
         signOptions.setLeft(10);
         signOptions.setTop(10);
         signOptions.setWidth(100);
@@ -174,9 +174,9 @@ public class ImageOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSignSlidesDocumentsExamples");
+        saveOptions.setOutputFileName("io_testSignSlidesDocumentsExamples.ppt");
         // sign document
-        String signedPath = handler.<String>sign("test.ppt", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.ppt"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -191,7 +191,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options with relative path - image file stores in config.ImagesPath folder
-        SlidesSignImageOptions signOptions = new SlidesSignImageOptions("signature.jpg");
+        SlidesSignImageOptions signOptions = new SlidesSignImageOptions(getImagesPath("signature.jpg"));
         // specify horizontal alignment
         signOptions.setHorizontalAlignment(HorizontalAlignment.Center);
         // specify vertical alignment
@@ -202,9 +202,9 @@ public class ImageOperationsTests {
         signOptions.getMargin().setLeft(20);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnSlidesDocumentPage");
+        saveOptions.setOutputFileName("io_testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnSlidesDocumentPage.ppt");
         // sign document
-        String signedPath = handler.<String>sign("test.ppt", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.ppt"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -219,7 +219,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options
-        SlidesSignImageOptions signOptions = new SlidesSignImageOptions("signature.jpg");
+        SlidesSignImageOptions signOptions = new SlidesSignImageOptions(getImagesPath("signature.jpg"));
         // specify Size
         signOptions.setHeight(25);
         signOptions.setWidth(25);
@@ -235,7 +235,7 @@ public class ImageOperationsTests {
         saveOptions.setOutputType(OutputType.String);
         saveOptions.setOutputFileName("io_testSpecifyAdjustmentSizeMarginsAndIntentsOfImageSlidesSignature");
         // sign document
-        String signedPath = handler.<String>sign("test.ppt", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.ppt"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -250,7 +250,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options with relative path - image file stores in config.ImagesPath folder
-        WordsSignImageOptions signOptions = new WordsSignImageOptions("signature.jpg");
+        WordsSignImageOptions signOptions = new WordsSignImageOptions(getImagesPath("signature.jpg"));
         signOptions.setLeft(10);
         signOptions.setTop(10);
         signOptions.setWidth(100);
@@ -258,9 +258,9 @@ public class ImageOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSignWordsDocumentsExamples");
+        saveOptions.setOutputFileName("io_testSignWordsDocumentsExamples.docx");
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -275,7 +275,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options with relative path - image file stores in config.ImagesPath folder
-        WordsSignImageOptions signOptions = new WordsSignImageOptions("signature.jpg");
+        WordsSignImageOptions signOptions = new WordsSignImageOptions(getImagesPath("signature.jpg"));
         // specify horizontal alignment
         signOptions.setHorizontalAlignment(HorizontalAlignment.Center);
         // specify vertical alignment
@@ -286,9 +286,9 @@ public class ImageOperationsTests {
         signOptions.getMargin().setLeft(20);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnWordsDocumentPage");
+        saveOptions.setOutputFileName("io_testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnWordsDocumentPage.docx");
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -303,7 +303,7 @@ public class ImageOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options
-        WordsSignImageOptions signOptions = new WordsSignImageOptions("signature.jpg");
+        WordsSignImageOptions signOptions = new WordsSignImageOptions(getImagesPath("signature.jpg"));
         // specify Size
         signOptions.setHeight(25);
         signOptions.setWidth(25);
@@ -317,9 +317,9 @@ public class ImageOperationsTests {
         signOptions.setLocationMeasureType(MeasureType.Percents);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSpecifyAdjustmentSizeMarginsAndIntentsOfImageWordsSignature");
+        saveOptions.setOutputFileName("io_testSpecifyAdjustmentSizeMarginsAndIntentsOfImageWordsSignature.docx");
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 }
