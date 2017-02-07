@@ -94,7 +94,7 @@ public class OtherOperationsTests {
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -120,7 +120,7 @@ public class OtherOperationsTests {
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -147,7 +147,7 @@ public class OtherOperationsTests {
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -162,7 +162,7 @@ public class OtherOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup image signature options
-        PdfSignImageOptions signOptions = new PdfSignImageOptions("signature.jpg");
+        PdfSignImageOptions signOptions = new PdfSignImageOptions(getImagesPath("signature.jpg"));
         // specify horizontal alignment to the right
         signOptions.setHorizontalAlignment(HorizontalAlignment.Right);
         // specify vertical alignment
@@ -170,11 +170,10 @@ public class OtherOperationsTests {
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testAlignSignatureOnDocumentPage() {
         // setup Signature configuration
@@ -186,7 +185,7 @@ public class OtherOperationsTests {
         // instantiating the conversion handler
         SignatureHandler<String> handler = new SignatureHandler<String>(signConfig);
         // setup digital signature options
-        PdfSignDigitalOptions signOptions = new PdfSignDigitalOptions(new FileDescription("test.pfx"), "signature.jpg");
+        PdfSignDigitalOptions signOptions = new PdfSignDigitalOptions(new FileDescription(getCertificatePath("test.pfx")), getImagesPath("signature.jpg"));
         signOptions.setPassword("1234567890");
         // image position to locate on right bottom corner with small margins
         signOptions.setHorizontalAlignment(HorizontalAlignment.Right); // only Margin.Right value will be used to shift the Signature rectangle
@@ -198,7 +197,7 @@ public class OtherOperationsTests {
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 }

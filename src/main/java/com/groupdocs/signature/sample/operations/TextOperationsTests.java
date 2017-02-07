@@ -593,7 +593,6 @@ public class TextOperationsTests {
         // setup digital verification options
         PDFVerifyTextOptions verifyOptions = new PDFVerifyTextOptions(text);
         verifyOptions.setDocumentPageNumber(1);
-
         //verify document
         VerificationResult result = handler.verify(signedPath, verifyOptions);
         System.out.println("Verification result: " + result.isValid());

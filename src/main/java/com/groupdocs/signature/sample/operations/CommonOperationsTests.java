@@ -55,7 +55,6 @@ public class CommonOperationsTests {
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
         saveOptions.setOutputFileName("co_testGetSourceDocumentFromRelativePath.pdf");
-
         // sign document
         String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -94,7 +93,6 @@ public class CommonOperationsTests {
         // sign document with image
         String signedPath = handler.<String>sign(fileStream, signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
-
     }
 
     @Ignore
