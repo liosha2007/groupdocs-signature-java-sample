@@ -12,6 +12,7 @@ import java.awt.*;
 
 import static com.groupdocs.signature.sample.TestRunner.OUTPUT_PATH;
 import static com.groupdocs.signature.sample.TestRunner.STORAGE_PATH;
+import static com.groupdocs.signature.sample.TestRunner.getStoragePath;
 
 /**
  * @author Aleksey Permyakov (01.02.2017)
@@ -40,9 +41,9 @@ public class TextOperationsTests {
         signOptions.setSheetNumber(2); // sign second sheet
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignCellsDocumentWithTextSignature");
+        saveOptions.setOutputFileName("to_testSignCellsDocumentWithTextSignature.xls");
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -76,9 +77,9 @@ public class TextOperationsTests {
         signOptions.getFont().setFontSize(25);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testAddFontBackgroundAndColorOptionsToTextSignatureAppearance");
+        saveOptions.setOutputFileName("to_testAddFontBackgroundAndColorOptionsToTextSignatureAppearance.xls");
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -95,11 +96,11 @@ public class TextOperationsTests {
         SignOptions signOptions = new CellsSignTextOptions("John Smith");
         final CellsSaveOptions saveOptions = new CellsSaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSavingSignedCellsDocumentsWithDifferentOutputFileType");
+        saveOptions.setOutputFileName("to_testSavingSignedCellsDocumentsWithDifferentOutputFileType.ods");
         // save to Open Office format
         saveOptions.setFileFormat(CellsSaveFileFormat.ODS);
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -135,9 +136,9 @@ public class TextOperationsTests {
         signOptions.setSignatureImplementation(CellsTextSignatureImplementation.TextAsImage);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignCellsDocumentWithTextSignatureAsImage");
+        saveOptions.setOutputFileName("to_testSignCellsDocumentWithTextSignatureAsImage.xls");
         // sign document
-        String signedPath = handler.<String>sign("test.xls", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.xls"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -156,15 +157,15 @@ public class TextOperationsTests {
         signOptions.setTop(100);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignPdfDocumentWithTextSignature");
+        saveOptions.setOutputFileName("to_testSignPdfDocumentWithTextSignature.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
     @Ignore
     @Test
-    public void testAddFontandColoroptionstoTextSignatureappearance() {
+    public void testAddFontAndColorOptionsToTextSignatureAppearance2() {
         // setup Signature configuration
         SignatureConfig signConfig = new SignatureConfig();
         signConfig.setStoragePath(STORAGE_PATH);
@@ -185,9 +186,9 @@ public class TextOperationsTests {
         signOptions.getFont().setFontSize(15);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testAddFontandColoroptionstoTextSignatureappearance");
+        saveOptions.setOutputFileName("testAddFontAndColorOptionsToTextSignatureAppearance2.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -204,11 +205,11 @@ public class TextOperationsTests {
         PdfSignTextOptions signOptions = new PdfSignTextOptions("John Smith");
         final PdfSaveOptions saveOptions = new PdfSaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSavingSignedPdfDocumentsWithDifferentOutputFileType");
+        saveOptions.setOutputFileName("to_testSavingSignedPdfDocumentsWithDifferentOutputFileType.epub");
         //
         saveOptions.setFileFormat(PdfSaveFileFormat.Epub);
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -235,9 +236,9 @@ public class TextOperationsTests {
         signOptions.getFont().setFontSize(36);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testAddOpacityOptionsToTextSignatureAppearance");
+        saveOptions.setOutputFileName("to_testAddOpacityOptionsToTextSignatureAppearance.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -266,9 +267,9 @@ public class TextOperationsTests {
         signOptions.setSignatureImplementation(PdfTextSignatureImplementation.Image);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignPdfDocumentWithTextSignatureAsImage");
+        saveOptions.setOutputFileName("to_testSignPdfDocumentWithTextSignatureAsImage.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -313,9 +314,9 @@ public class TextOperationsTests {
         signOptions.setAppearance(appearance);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignPdfDocumentWithTextSignatureAsAnnotation");
+        saveOptions.setOutputFileName("to_testSignPdfDocumentWithTextSignatureAsAnnotation.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -337,9 +338,9 @@ public class TextOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignSlidesDocumentWithTextSignature");
+        saveOptions.setOutputFileName("to_testSignSlidesDocumentWithTextSignature.ppt");
         // sign document
-        String signedPath = handler.<String>sign("test.ppt", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.ppt"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -374,9 +375,9 @@ public class TextOperationsTests {
         signOptions.getFont().setFontSize(15);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testAddFontAndColorOptionsToTextSignatureAppearance");
+        saveOptions.setOutputFileName("to_testAddFontAndColorOptionsToTextSignatureAppearance.ppt");
         // sign document
-        String signedPath = handler.<String>sign("test.ppt", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.ppt"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -394,11 +395,11 @@ public class TextOperationsTests {
         // specify save options
         final SlidesSaveOptions saveOptions = new SlidesSaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSavingSignedSlidesDocumentsWithDifferentOutputFileType");
+        saveOptions.setOutputFileName("to_testSavingSignedSlidesDocumentsWithDifferentOutputFileType.odp");
         //saveOptions.setFileFormat(Signature.Domain.SlidesSaveFileFormat.Odp);
         saveOptions.setFileFormat(SlidesSaveFileFormat.Odp);
         // sign document
-        String signedPath = handler.<String>sign("test.ppt", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.ppt"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -435,9 +436,9 @@ public class TextOperationsTests {
         signOptions.setSignatureImplementation(SlidesTextSignatureImplementation.TextAsImage);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignSlidesDocumentWithTextSignatureAsImage");
+        saveOptions.setOutputFileName("to_testSignSlidesDocumentWithTextSignatureAsImage.ppt");
         // sign document
-        String signedPath = handler.<String>sign("test.ppt", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.ppt"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -459,9 +460,9 @@ public class TextOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignWordsDocumentWithTextSignature");
+        saveOptions.setOutputFileName("to_testSignWordsDocumentWithTextSignature.docx");
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -499,9 +500,9 @@ public class TextOperationsTests {
         signOptions.getFont().setFontSize(15);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testAddFontAndColorOptionsToTextSignatureAppearance");
+        saveOptions.setOutputFileName("to_testAddFontAndColorOptionsToTextSignatureAppearance.docx");
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -519,11 +520,11 @@ public class TextOperationsTests {
         // specify save options
         final WordsSaveOptions saveOptions = new WordsSaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSavingSignedWordsDocumentsWithDifferentOutputFileType");
+        saveOptions.setOutputFileName("to_testSavingSignedWordsDocumentsWithDifferentOutputFileType.odt");
         saveOptions.setFileFormat(WordsSaveFileFormat.Odt);
         //saveOptions.setFileFormat(Signature.Domain.WordsSaveFileFormat.Odt);
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
@@ -563,13 +564,12 @@ public class TextOperationsTests {
         signOptions.setSignatureImplementation(WordsTextSignatureImplementation.TextAsImage);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testSignWordsDocumentWithTextSignatureAsImage");
+        saveOptions.setOutputFileName("to_testSignWordsDocumentWithTextSignatureAsImage.docx");
         // sign document
-        String signedPath = handler.<String>sign("test.docx", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testTextVerificationOfPDFDocument() {
         // setup Signature configuration
@@ -586,9 +586,9 @@ public class TextOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("to_testTextVerificationOfPDFDocument");
+        saveOptions.setOutputFileName("to_testTextVerificationOfPDFDocument.pdf");
         // sign document
-        String signedPath = handler.<String>sign("test2pages.pdf", signOptions, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test2pages.pdf"), signOptions, saveOptions);
         // setup digital verification options
         PDFVerifyTextOptions verifyOptions = new PDFVerifyTextOptions(text);
         verifyOptions.setDocumentPageNumber(1);
