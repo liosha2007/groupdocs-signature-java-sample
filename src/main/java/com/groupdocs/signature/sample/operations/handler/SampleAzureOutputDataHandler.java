@@ -1,36 +1,34 @@
 package com.groupdocs.signature.sample.operations.handler;
 
-import com.aspose.ms.System.IO.Stream;
 import com.groupdocs.signature.domain.FileDescription;
 import com.groupdocs.signature.handler.output.IOutputDataHandler;
 import com.groupdocs.signature.options.SaveOptions;
 import com.groupdocs.signature.options.SignOptions;
+import com.microsoft.azure.storage.StorageException;
 
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URISyntaxException;
 
 /**
  * @author liosha (02.02.2017)
  */
 public class SampleAzureOutputDataHandler extends SampleAzureDataHandler implements IOutputDataHandler {
+    public SampleAzureOutputDataHandler(String endpoint, String accountName, String accountKey, String containerName) throws URISyntaxException, StorageException {
+        super(endpoint, accountName, accountKey, containerName);
+    }
+
     @Override
-    public InputStream createFile(FileDescription fileDescription, SignOptions signOptions, SaveOptions saveOptions) {
+    public OutputStream createFile(FileDescription fileDescription, SignOptions signOptions, SaveOptions saveOptions) {
         return null;
     }
 
     @Override
-    public Stream createFileInternal(FileDescription fileDescription, SignOptions signOptions, SaveOptions saveOptions) {
+    public OutputStream createStream(FileDescription fileDescription, SignOptions signOptions, SaveOptions saveOptions) {
         return null;
     }
 
-    @Override
-    public InputStream createStream(FileDescription fileDescription, SignOptions signOptions, SaveOptions saveOptions) {
-        return null;
-    }
 
-    @Override
-    public Stream createStreamInternal(FileDescription fileDescription, SignOptions signOptions, SaveOptions saveOptions) {
-        return null;
-    }
 //    public SampleAzureOutputDataHandler(string endpoint,
 //                                        string accountName,
 //                                        string accountKey,

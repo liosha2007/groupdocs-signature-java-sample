@@ -22,9 +22,8 @@ import static com.groupdocs.signature.sample.TestRunner.*;
  */
 public class DigitalOperationsTests {
 
-    @Ignore
     @Test
-    public void testDigitalSigningOfCellsDocument() throws IOException {
+    public void testDigitalSigningOfCellsDocument() throws Exception {
         // setup Signature configuration
         SignatureConfig signConfig = new SignatureConfig();
         signConfig.setStoragePath(STORAGE_PATH);
@@ -49,9 +48,9 @@ public class DigitalOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
+    @Ignore // does not work
     @Test
-    public void testDigitalSigningOfPDFDocument() {
+    public void testDigitalSigningOfPDFDocument() throws Exception {
         // setup Signature configuration
         SignatureConfig signConfig = new SignatureConfig();
         signConfig.setStoragePath(STORAGE_PATH);
@@ -80,15 +79,13 @@ public class DigitalOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testDigitalSigningOfSlidesDocument() {
         // At this moment Slides Documents are not supported by GroupDocs Digital Signature. This feature will be available in future releases
     }
 
-    @Ignore
     @Test
-    public void testDigitalSigningOfWordDocument() {
+    public void testDigitalSigningOfWordDocument() throws Exception {
         // setup Signature configuration
         SignatureConfig signConfig = new SignatureConfig();
         signConfig.setStoragePath(STORAGE_PATH);
@@ -110,7 +107,6 @@ public class DigitalOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testDigitalVerificationOfCellsDocumentWithCERCertificateContainer() {
         // setup Signature configuration
@@ -131,7 +127,6 @@ public class DigitalOperationsTests {
         System.out.println("Signed file verification result: " + result.isValid());
     }
 
-    @Ignore
     @Test
     public void testDigitalVerificationOfCellsDocumentWithPFXCertificateContainer() {
         // setup Signature configuration
@@ -153,7 +148,6 @@ public class DigitalOperationsTests {
         System.out.println("Signed file verification result: " + result.isValid());
     }
 
-    @Ignore
     @Test
     public void testDigitalVerificationOfPDFDocumentWithCERCertificateContainer() {
         // setup Signature configuration
@@ -174,7 +168,6 @@ public class DigitalOperationsTests {
         System.out.println("Signed file verification result: " + result.isValid());
     }
 
-    @Ignore
     @Test
     public void testDigitalVerificationOfPDFDocumentWithPFXCertificateContainer() {
         // setup Signature configuration
@@ -197,13 +190,11 @@ public class DigitalOperationsTests {
         System.out.println("Signed file verification result: " + result.isValid());
     }
 
-    @Ignore
     @Test
     public void testDigitalVerificationOfSlidesDocument() {
         // At this moment Slides Documents are not supported by GroupDocs Digital Signature Verification. This feature will be available in future releases
     }
 
-    @Ignore
     @Test
     public void testDigitalVerificationOfWordsDocumentWithCERCertificateContainer() {
         // setup Signature configuration
@@ -226,7 +217,6 @@ public class DigitalOperationsTests {
         System.out.println("Signed file verification result: " + result.isValid());
     }
 
-    @Ignore
     @Test
     public void testDigitalVerificationOfWordsDocumentWithPFXCertificateContainer() {
         // setup Signature configuration

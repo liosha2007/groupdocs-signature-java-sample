@@ -2,13 +2,19 @@ package com.groupdocs.signature.sample.operations.handler;
 
 import com.groupdocs.signature.domain.FileDescription;
 import com.groupdocs.signature.handler.input.IInputDataHandler;
+import com.microsoft.azure.storage.StorageException;
 
 import java.io.InputStream;
+import java.net.URISyntaxException;
 
 /**
  * @author liosha (02.02.2017)
  */
 public class SampleAzureInputDataHandler extends SampleAzureDataHandler implements IInputDataHandler {
+        public SampleAzureInputDataHandler(String endpoint, String accountName, String accountKey, String containerName) throws URISyntaxException, StorageException {
+                super(endpoint, accountName, accountKey, containerName);
+        }
+
         @Override
         public FileDescription getFileDescription(String guid) {
                 return null;
@@ -18,6 +24,7 @@ public class SampleAzureInputDataHandler extends SampleAzureDataHandler implemen
         public InputStream getStream(String guid) {
                 return null;
         }
+
 //public SampleAzureInputDataHandler(String endpoint,
 //        String accountName,
 //        String accountKey,

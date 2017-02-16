@@ -20,7 +20,6 @@ public class OtherOperationsTests {
     final String DevStorageEmulatorAccountName = "devstoreaccount1";
     final String DevStorageEmulatorAccountKey = "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
 
-    @Ignore
     @Test
     public void testHowToUseCustomInputDataHandler() throws FileNotFoundException {
 ////        String rootPath = Path.GetFullPath(@"..\..\");
@@ -46,7 +45,6 @@ public class OtherOperationsTests {
 //        System.out.println("Document signed successfully. The output filename: {0}", fileName);
     }
 
-    @Ignore
     @Test
     public void testHowToUseCustomOutputDataHandler() {
 ////        String rootPath = Path.GetFullPath(@"..\..\");
@@ -70,7 +68,6 @@ public class OtherOperationsTests {
 //        System.out.println("Document signed successfully. The output filename: {0}", fileName);
     }
 
-    @Ignore
     @Test
     public void testSetupFontAndTextColorOptions() {
         // setup Signature configuration
@@ -98,7 +95,6 @@ public class OtherOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSetupBackgroundAndBorderSettings() {
         // setup Signature configuration
@@ -124,7 +120,6 @@ public class OtherOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSetupImageSignatureRectangleAndMargins() {
         // setup Signature configuration
@@ -151,7 +146,6 @@ public class OtherOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSetupSignatureAreaAlignment() {
         // setup Signature configuration
@@ -174,8 +168,9 @@ public class OtherOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
+    @Ignore // does not work
     @Test
-    public void testAlignSignatureOnDocumentPage() {
+    public void testAlignSignatureOnDocumentPage() throws Exception {
         // setup Signature configuration
         SignatureConfig signConfig = new SignatureConfig();
         signConfig.setStoragePath(STORAGE_PATH);

@@ -2,6 +2,7 @@ package com.groupdocs.signature.sample.operations;
 
 import com.groupdocs.signature.config.SignatureConfig;
 import com.groupdocs.signature.domain.CellsSaveFileFormat;
+import com.groupdocs.signature.domain.FileDescription;
 import com.groupdocs.signature.domain.HorizontalAlignment;
 import com.groupdocs.signature.domain.VerticalAlignment;
 import com.groupdocs.signature.handler.SignatureHandler;
@@ -22,7 +23,6 @@ import static com.groupdocs.signature.sample.TestRunner.*;
  */
 public class CommonOperationsTests {
 
-    @Ignore
     @Test
     public void testGetSourceDocumentFromAbsolutePath() {
         // setup Signature configuration
@@ -40,7 +40,6 @@ public class CommonOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testGetSourceDocumentFromRelativePath() {
         // setup Signature configuration
@@ -60,7 +59,6 @@ public class CommonOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testGetSourceDocumentFromUri() {
         // setup Signature configuration
@@ -77,7 +75,6 @@ public class CommonOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testGetSourceDocumentFromStream() throws IOException {
         // setup Signature configuration
@@ -95,7 +92,6 @@ public class CommonOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testLoadingALicenseFromFile() {
         // Path to license file
@@ -105,7 +101,6 @@ public class CommonOperationsTests {
         license.setLicense(licensePath);
     }
 
-    @Ignore
     @Test
     public void testLoadingALicenseFromAStreamObject() throws IOException {
         // Obtain license stream
@@ -116,7 +111,6 @@ public class CommonOperationsTests {
         license.setLicense(licenseStream);
     }
 
-    @Ignore
     @Test
     public void testOpenPasswordProtectedDocuments() {
         // setup Signature configuration
@@ -139,7 +133,6 @@ public class CommonOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSaveSignedDocumentsWithDifferentFileFormat() {
         // setup Signature configuration
@@ -162,7 +155,6 @@ public class CommonOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSaveSignedDocumentsWithDifferentFileName() {
         SignatureConfig signConfig = new SignatureConfig();
@@ -183,9 +175,9 @@ public class CommonOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
+    @Ignore // does not work
     @Test
-    public void testSetupMultipleSignatureOptions() throws FileNotFoundException {
+    public void testSetupMultipleSignatureOptions() throws Exception {
         // setup Signature configuration
         SignatureConfig signConfig = new SignatureConfig();
         signConfig.setOutputPath(OUTPUT_PATH);
@@ -222,9 +214,9 @@ public class CommonOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
+    @Ignore // does not work
     @Test
-    public void testImposePdfDigitalSignatureWithTextSignatureAboveAndUnderSignatureArea() throws FileNotFoundException {
+    public void testImposePdfDigitalSignatureWithTextSignatureAboveAndUnderSignatureArea() throws Exception {
         // setup Signature configuration
         SignatureConfig signConfig = new SignatureConfig();
         signConfig.setOutputPath(OUTPUT_PATH);
@@ -242,7 +234,7 @@ public class CommonOperationsTests {
         // add to collection
         collection.add(signTextOptionsFirst);
         // specify digital options
-        PdfSignDigitalOptions signDigitalOptions = new PdfSignDigitalOptions(new FileInputStream(getCertificatePath("test.pfx")));
+        PdfSignDigitalOptions signDigitalOptions = new PdfSignDigitalOptions(new FileDescription(getCertificatePath("test.pfx")));
         signDigitalOptions.setPassword("1234567890");
         signDigitalOptions.setReason("Any reason");
         signDigitalOptions.setLocation("Some location");
@@ -259,9 +251,9 @@ public class CommonOperationsTests {
         collection.add(signTextOptionsSecond);
         final SaveOptions saveOptions = new SaveOptions();
         // sign document
-        String signedPath = handler.<String>sign("test.pdf", collection, saveOptions);
+        String signedPath = handler.<String>sign(getStoragePath("test.pdf"), collection, saveOptions);
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("co_testImposePdfDigitalSignatureWithTextSignatureAboveAndUnderSignatureArea.pdf");
+        saveOptions.setOutputFileName("co_testImposePdfDigitalSignatureWithTextSignatureAboveAndUnderSignatureArea-java.pdf");
         System.out.println("Signed file path is: " + signedPath);
     }
 }

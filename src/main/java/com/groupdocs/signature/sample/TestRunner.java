@@ -3,11 +3,13 @@ package com.groupdocs.signature.sample;
 
 import com.groupdocs.signature.licensing.License;
 import com.groupdocs.signature.sample.operations.*;
+import org.apache.commons.io.FileUtils;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * @author Aleksey Permyakov (01.02.2017)
@@ -25,8 +27,9 @@ public class TestRunner {
      *
      * @param args params
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         applyLicense();
+        cleanOutput();
 
         Result result = JUnitCore.runClasses(
                 CommonOperationsTests.class,
@@ -49,6 +52,10 @@ public class TestRunner {
         if (LICENSE_PATH != null && new File(LICENSE_PATH).exists()) {
             lic.setLicense(LICENSE_PATH);
         }
+    }
+
+    private static void cleanOutput() throws IOException {
+        FileUtils.cleanDirectory(new File(OUTPUT_PATH));
     }
 
     public static String getStoragePath(String fileName, String... subDirectories) {

@@ -17,7 +17,6 @@ import static com.groupdocs.signature.sample.TestRunner.*;
  */
 public class ImageOperationsTests {
 
-    @Ignore
     @Test
     public void testSignCellsDocumentWithImageSignature() {
         // setup Signature configuration
@@ -42,7 +41,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnDocumentPage() {
         // setup Signature configuration
@@ -70,7 +68,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignPDFDocumentsExamples() {
         // setup Signature configuration
@@ -96,7 +93,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnPdfDocumentPage() {
         // setup Signature configuration
@@ -124,7 +120,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSpecifyAdjustmentSizeMarginsAndIntentsOfImageSignature() {
         // setup Signature configuration
@@ -155,7 +150,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignSlidesDocumentsExamples() {
         // setup Signature configuration
@@ -180,7 +174,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnSlidesDocumentPage() {
         // setup Signature configuration
@@ -208,7 +201,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSpecifyAdjustmentSizeMarginsAndIntentsOfImageSlidesSignature() {
         // setup Signature configuration
@@ -239,7 +231,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignWordsDocumentsExamples() {
         // setup Signature configuration
@@ -264,7 +255,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSpecifyMarginsAndAlignmentOfImageSignatureAppearanceOnWordsDocumentPage() {
         // setup Signature configuration
@@ -292,7 +282,6 @@ public class ImageOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSpecifyAdjustmentSizeMarginsAndIntentsOfImageWordsSignature() {
         // setup Signature configuration

@@ -19,7 +19,6 @@ import static com.groupdocs.signature.sample.TestRunner.getStoragePath;
  */
 public class TextOperationsTests {
 
-    @Ignore
     @Test
     public void testSignCellsDocumentWithTextSignature() {
         // setup Signature configuration
@@ -47,7 +46,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testAddFontBackgroundAndColorOptionsToTextSignatureAppearance() {
         // setup Signature configuration
@@ -83,7 +81,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSavingSignedCellsDocumentsWithDifferentOutputFileType() {
         // setup Signature configuration
@@ -104,7 +101,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignCellsDocumentWithTextSignatureAsImage() {
         // setup Signature configuration
@@ -142,7 +138,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignPdfDocumentWithTextSignature() {
         // setup Signature configuration
@@ -163,7 +158,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testAddFontAndColorOptionsToTextSignatureAppearance2() {
         // setup Signature configuration
@@ -192,7 +186,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSavingSignedPdfDocumentsWithDifferentOutputFileType() {
         // setup Signature configuration
@@ -213,7 +206,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testAddOpacityOptionsToTextSignatureAppearance() {
         // setup Signature configuration
@@ -242,7 +234,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignPdfDocumentWithTextSignatureAsImage() {
         // setup Signature configuration
@@ -273,7 +264,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignPdfDocumentWithTextSignatureAsAnnotation() {
         // setup Signature configuration
@@ -320,7 +310,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignSlidesDocumentWithTextSignature() {
         // setup Signature configuration
@@ -344,7 +333,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testAddFontAndColorOptionsToSlidesTextSignatureAppearance() {
         // setup Signature configuration
@@ -381,7 +369,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSavingSignedSlidesDocumentsWithDifferentOutputFileType() {
         // setup Signature configuration
@@ -403,7 +390,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignSlidesDocumentWithTextSignatureAsImage() {
         // setup Signature configuration
@@ -442,7 +428,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignWordsDocumentWithTextSignature() {
         // setup Signature configuration
@@ -466,7 +451,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testAddFontAndColorOptionsToTextSignatureAppearance() {
         // setup Signature configuration
@@ -506,7 +490,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSavingSignedWordsDocumentsWithDifferentOutputFileType() {
         // setup Signature configuration
@@ -528,7 +511,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testSignWordsDocumentWithTextSignatureAsImage() {
         // setup Signature configuration
@@ -570,7 +552,6 @@ public class TextOperationsTests {
         System.out.println("Signed file path is: " + signedPath);
     }
 
-    @Ignore
     @Test
     public void testTextVerificationOfPDFDocument() {
         // setup Signature configuration
