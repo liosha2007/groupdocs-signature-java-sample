@@ -10,9 +10,7 @@ import org.junit.Test;
 
 import java.awt.*;
 
-import static com.groupdocs.signature.sample.TestRunner.OUTPUT_PATH;
-import static com.groupdocs.signature.sample.TestRunner.STORAGE_PATH;
-import static com.groupdocs.signature.sample.TestRunner.getStoragePath;
+import static com.groupdocs.signature.sample.TestRunner.*;
 
 /**
  * @author Aleksey Permyakov (01.02.2017)
@@ -57,7 +55,7 @@ public class TextOperationsTests {
         // setup options with text of signature
         CellsSignTextOptions signOptions = new CellsSignTextOptions("John Smith");
         // setup background settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         signOptions.setBackgroundTransparency(0.5);
         //setup border settings
         signOptions.setBorderColor(Color.BLACK);
@@ -112,7 +110,7 @@ public class TextOperationsTests {
         // setup options with text of signature
         CellsSignTextOptions signOptions = new CellsSignTextOptions("John Smith");
         // setup background settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         signOptions.setBackgroundTransparency(0.5);
         //setup border settings
         signOptions.setBorderColor(Color.BLACK);
@@ -169,7 +167,7 @@ public class TextOperationsTests {
         // setup image signature options with relative path - image file stores in config.ImagesPath folder
         PdfSignTextOptions signOptions = new PdfSignTextOptions("John Smith");
         // setup colors settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         // setup text color
         signOptions.setForeColor(Color.RED);
         // setup Font options
@@ -180,7 +178,7 @@ public class TextOperationsTests {
         signOptions.getFont().setFontSize(15);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("testAddFontAndColorOptionsToTextSignatureAppearance2.pdf");
+        saveOptions.setOutputFileName("to_testAddFontAndColorOptionsToTextSignatureAppearance2.pdf");
         // sign document
         String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -245,7 +243,7 @@ public class TextOperationsTests {
         // setup image signature options with relative path - image file stores in config.ImagesPath folder
         PdfSignTextOptions signOptions = new PdfSignTextOptions("John Smith");
         // setup colors settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         // setup text color
         signOptions.setForeColor(Color.RED);
         // setup Font options
@@ -279,7 +277,7 @@ public class TextOperationsTests {
         signOptions.setHeight(200);
         signOptions.setWidth(200);
         // setup colors settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         // setup text color
         signOptions.setForeColor(Color.RED);
         // setup Font options
@@ -349,7 +347,7 @@ public class TextOperationsTests {
         signOptions.setHeight(100);
         signOptions.setDocumentPageNumber(1);
         // background color
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         // border options
         signOptions.setBorderColor(Color.GREEN);
         signOptions.setBorderWeight(1);
@@ -406,7 +404,7 @@ public class TextOperationsTests {
         signOptions.setHeight(100);
         signOptions.setDocumentPageNumber(1);
         // background color
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         // border options
         signOptions.setBorderColor(Color.GREEN);
         signOptions.setBorderWeight(1);
@@ -467,7 +465,7 @@ public class TextOperationsTests {
         signOptions.setHeight(100);
         signOptions.setDocumentPageNumber(1);
         // setup background settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         signOptions.setBackgroundTransparency(0.5);
         // setup border settings
         signOptions.setBorderColor(Color.BLACK);
@@ -527,7 +525,7 @@ public class TextOperationsTests {
         signOptions.setHeight(100);
         signOptions.setDocumentPageNumber(1);
         // setup background settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         signOptions.setBackgroundTransparency(0.5);
         // setup border settings
         signOptions.setBorderColor(Color.BLACK);

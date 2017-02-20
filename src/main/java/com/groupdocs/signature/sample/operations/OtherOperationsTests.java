@@ -79,7 +79,7 @@ public class OtherOperationsTests {
         // setup image signature options with relative path - image file stores in config.ImagesPath folder
         PdfSignTextOptions signOptions = new PdfSignTextOptions("John Smith");
         // setup colors settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         // setup text color
         signOptions.setForeColor(Color.RED);
         // setup Font options
@@ -90,6 +90,7 @@ public class OtherOperationsTests {
         signOptions.getFont().setFontSize(15);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
+        saveOptions.setOutputFileName("oo_testSetupFontAndTextColorOptions");
         // sign document
         String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -106,7 +107,7 @@ public class OtherOperationsTests {
         // setup image signature options with relative path - image file stores in config.ImagesPath folder
         WordsSignTextOptions signOptions = new WordsSignTextOptions("John Smith");
         // setup background settings
-        signOptions.setBackgroundColor(Color.GRAY);
+        signOptions.setBackgroundColor(Color.decode("#FFF5F5"));
         signOptions.setBackgroundTransparency(0.5);
         // setup border settings
         signOptions.setBorderColor(Color.BLACK);
@@ -115,6 +116,7 @@ public class OtherOperationsTests {
         signOptions.setBorderTransparency(0.5);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
+        saveOptions.setOutputFileName("oo_testSetupBackgroundAndBorderSettings");
         // sign document
         String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -141,6 +143,7 @@ public class OtherOperationsTests {
         signOptions.getMargin().setLeft(20);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
+        saveOptions.setOutputFileName("oo_testSetupImageSignatureRectangleAndMargins");
         // sign document
         String signedPath = handler.<String>sign(getStoragePath("test.docx"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -163,6 +166,7 @@ public class OtherOperationsTests {
         signOptions.setVerticalAlignment(VerticalAlignment.Bottom);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
+        saveOptions.setOutputFileName("oo_testSetupSignatureAreaAlignment");
         // sign document
         String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);
@@ -191,6 +195,7 @@ public class OtherOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
+        saveOptions.setOutputFileName("oo_testAlignSignatureOnDocumentPage");
         // sign document
         String signedPath = handler.<String>sign(getStoragePath("test.pdf"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);

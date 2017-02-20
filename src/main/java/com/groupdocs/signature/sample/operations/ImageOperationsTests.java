@@ -168,7 +168,7 @@ public class ImageOperationsTests {
         signOptions.setDocumentPageNumber(1);
         final SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputType(OutputType.String);
-        saveOptions.setOutputFileName("io_testSignSlidesDocumentsExamples.ppt");
+        saveOptions.setOutputFileName("io_testSignSlidesDocumentsExamples");
         // sign document
         String signedPath = handler.<String>sign(getStoragePath("test.ppt"), signOptions, saveOptions);
         System.out.println("Signed file path is: " + signedPath);

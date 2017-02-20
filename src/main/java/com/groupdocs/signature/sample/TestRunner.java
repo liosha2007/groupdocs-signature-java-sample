@@ -47,7 +47,7 @@ public class TestRunner {
         System.out.println(String.format("=== SUCCESS: %d, FAIL: %d, IGNORE: %d ===", result.getRunCount(), result.getFailureCount(), result.getIgnoreCount()));
     }
 
-    static void applyLicense() {
+    public static void applyLicense() {
         License lic = new License();
         if (LICENSE_PATH != null && new File(LICENSE_PATH).exists()) {
             lic.setLicense(LICENSE_PATH);
