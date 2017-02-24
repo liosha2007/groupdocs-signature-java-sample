@@ -29,6 +29,7 @@ public class OtherOperationsTests {
     final String DevStorageEmulatorAccountKey = "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
     final String INPUT_FILE_NAME = "INPUT_FILE_NAME";
 
+    @Ignore
     @Test
     public void testHowToUseCustomInputDataHandler() throws FileNotFoundException, URISyntaxException, StorageException {
         SignatureConfig config = new SignatureConfig();
@@ -52,6 +53,7 @@ public class OtherOperationsTests {
         System.out.println("Document signed successfully. The output filename: " + fileName);
     }
 
+    @Ignore
     @Test
     public void testHowToUseCustomOutputDataHandler() throws URISyntaxException, StorageException, FileNotFoundException {
         SignatureConfig config = new SignatureConfig();
