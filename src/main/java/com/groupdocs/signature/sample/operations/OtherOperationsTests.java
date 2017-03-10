@@ -3,12 +3,20 @@ package com.groupdocs.signature.sample.operations;
 import com.groupdocs.signature.config.SignatureConfig;
 import com.groupdocs.signature.domain.*;
 import com.groupdocs.signature.handler.SignatureHandler;
+import com.groupdocs.signature.handler.input.IInputDataHandler;
+import com.groupdocs.signature.handler.output.IOutputDataHandler;
 import com.groupdocs.signature.options.*;
+import com.groupdocs.signature.sample.operations.handler.SampleAzureInputDataHandler;
+import com.groupdocs.signature.sample.operations.handler.SampleAzureOutputDataHandler;
+import com.microsoft.azure.storage.StorageException;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.awt.*;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
 
 import static com.groupdocs.signature.sample.TestRunner.*;
 
@@ -19,53 +27,50 @@ public class OtherOperationsTests {
     final String DevStorageEmulatorUrl = "http://127.0.0.1:10000/devstoreaccount1/";
     final String DevStorageEmulatorAccountName = "devstoreaccount1";
     final String DevStorageEmulatorAccountKey = "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
+    final String INPUT_FILE_NAME = "INPUT_FILE_NAME";
 
     @Test
-    public void testHowToUseCustomInputDataHandler() throws FileNotFoundException {
-////        String rootPath = Path.GetFullPath(@"..\..\");
-//        SignatureConfig signConfig = new SignatureConfig();
-//        signConfig.setOutputPath(OUTPUT_PATH);
-//        signConfig.setImagesPath(IMAGES_PATH);
-//
-//        String fileName;
-//
-//        SaveOptions saveOptions = new SaveOptions(OutputType.String);
-//        IInputDataHandler customInputStorageProvider = new SampleAzureInputDataHandler(DevStorageEmulatorUrl,
-//                DevStorageEmulatorAccountName, DevStorageEmulatorAccountKey, "testbucket");
-//        SignatureHandler handlerWithCustomStorage = new SignatureHandler(signConfig, customInputStorageProvider);
-//        LicenseSetter.SetSignatureLicense(handlerWithCustomStorage);
-//
-//        InputStream imageStream = new FileInputStream(getImagesPath("Autograph_of_Benjamin_Franklin.png"));
-//            PdfSignImageOptions options = new PdfSignImageOptions(imageStream);
-//            options.setDocumentPageNumber(1);
-//            options.setTop(500);
-//            options.setWidth(200);
-//            options.setHeight(100);
-//            fileName = handlerWithCustomStorage.<String>sign(inputFileName, options, saveOptions);
-//        System.out.println("Document signed successfully. The output filename: {0}", fileName);
+    public void testHowToUseCustomInputDataHandler() throws FileNotFoundException, URISyntaxException, StorageException {
+        SignatureConfig config = new SignatureConfig();
+        config.setOutputPath(OUTPUT_PATH);
+
+        String fileName;
+
+        SaveOptions saveOptions = new SaveOptions(OutputType.String);
+        IInputDataHandler customInputStorageProvider =
+                new SampleAzureInputDataHandler(DevStorageEmulatorUrl, DevStorageEmulatorAccountName, DevStorageEmulatorAccountKey, "testbucket");
+        SignatureHandler<String> handlerWithCustomStorage = new SignatureHandler<String>(config, customInputStorageProvider);
+        applyLicense();
+
+        InputStream imageStream = new FileInputStream(getImagesPath("Autograph_of_Benjamin_Franklin.png"));
+        PdfSignImageOptions options = new PdfSignImageOptions(imageStream);
+        options.setDocumentPageNumber(1);
+        options.setTop(500);
+        options.setWidth(200);
+        options.setHeight(100);
+        fileName = handlerWithCustomStorage.sign(getStoragePath(INPUT_FILE_NAME), options, saveOptions);
+        System.out.println("Document signed successfully. The output filename: " + fileName);
     }
 
     @Test
-    public void testHowToUseCustomOutputDataHandler() {
-////        String rootPath = Path.GetFullPath(@"..\..\");
-//        SignatureConfig signConfig = new SignatureConfig();
-//        signConfig.setStoragePath(STORAGE_PATH);
-//        signConfig.setImagesPath(IMAGES_PATH);
-//
-//        String fileName;
-//        SaveOptions saveOptions = new SaveOptions(OutputType.String);
-//        IOutputDataHandler customOutputStorageProvider = new SampleAzureOutputDataHandler(
-//                DevStorageEmulatorUrl, DevStorageEmulatorAccountName, DevStorageEmulatorAccountKey, "tempbucket");
-//        SignatureHandler handlerWithCustomStorage = new SignatureHandler(signConfig, customOutputStorageProvider);
-//        LicenseSetter.SetSignatureLicense(handlerWithCustomStorage);
-//        InputStream imageStream = FileInputStream(getImagesPath("Autograph_of_Benjamin_Franklin.png"));
-//            PdfSignImageOptions options = new PdfSignImageOptions(imageStream);
-//            options.setDocumentPageNumber(1);
-//            options.setTop(500);
-//            options.setWidth(200);
-//            options.setHeight(100);
-//            fileName = handlerWithCustomStorage.<String>sign(inputFileName, options, saveOptions);
-//        System.out.println("Document signed successfully. The output filename: {0}", fileName);
+    public void testHowToUseCustomOutputDataHandler() throws URISyntaxException, StorageException, FileNotFoundException {
+        SignatureConfig config = new SignatureConfig();
+        config.setStoragePath(STORAGE_PATH);
+
+        String fileName;
+        SaveOptions saveOptions = new SaveOptions(OutputType.String);
+        IOutputDataHandler customOutputStorageProvider = new SampleAzureOutputDataHandler(
+                DevStorageEmulatorUrl, DevStorageEmulatorAccountName, DevStorageEmulatorAccountKey, "tempbucket");
+        SignatureHandler<String> handlerWithCustomStorage = new SignatureHandler<String>(config, customOutputStorageProvider);
+        applyLicense();
+        InputStream imageStream = new FileInputStream(getImagesPath("Autograph_of_Benjamin_Franklin.png"));
+        PdfSignImageOptions options = new PdfSignImageOptions(imageStream);
+        options.setDocumentPageNumber(1);
+        options.setTop(500);
+        options.setWidth(200);
+        options.setHeight(100);
+        fileName = handlerWithCustomStorage.sign(INPUT_FILE_NAME, options, saveOptions);
+        System.out.println("Document signed successfully. The output filename: " + fileName);
     }
 
     @Test

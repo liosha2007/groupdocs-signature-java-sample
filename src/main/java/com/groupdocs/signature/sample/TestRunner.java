@@ -3,6 +3,7 @@ package com.groupdocs.signature.sample;
 
 import com.groupdocs.signature.licensing.License;
 import com.groupdocs.signature.sample.operations.*;
+import com.groupdocs.signature.sample.tasks.CommonIssuesTests;
 import org.apache.commons.io.FileUtils;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
@@ -32,11 +33,12 @@ public class TestRunner {
         cleanOutput();
 
         Result result = JUnitCore.runClasses(
-                CommonOperationsTests.class,
-                TextOperationsTests.class,
-                ImageOperationsTests.class,
-                DigitalOperationsTests.class,
-                OtherOperationsTests.class
+//                CommonOperationsTests.class,
+//                TextOperationsTests.class,
+//                ImageOperationsTests.class,
+//                DigitalOperationsTests.class,
+//                OtherOperationsTests.class,
+                CommonIssuesTests.class
         );
 
         for (Failure failure : result.getFailures()) {

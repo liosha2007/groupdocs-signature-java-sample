@@ -5,7 +5,12 @@ import com.groupdocs.signature.handler.output.IOutputDataHandler;
 import com.groupdocs.signature.options.SaveOptions;
 import com.groupdocs.signature.options.SignOptions;
 import com.microsoft.azure.storage.StorageException;
+import com.microsoft.azure.storage.blob.CloudAppendBlob;
+import com.microsoft.azure.storage.blob.CloudBlobContainer;
+import com.microsoft.azure.storage.blob.CloudBlockBlob;
+import sun.security.krb5.internal.ccache.CCacheOutputStream;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
@@ -20,6 +25,24 @@ public class SampleAzureOutputDataHandler extends SampleAzureDataHandler impleme
 
     @Override
     public OutputStream createFile(FileDescription fileDescription, SignOptions signOptions, SaveOptions saveOptions) {
+        try {
+            CloudBlobContainer container = getContainerReference();
+            String name = fileDescription.getGUID().toLowerCase();
+            CloudBlockBlob blob = container.getBlockBlobReference(name);
+            ByteArrayOutputStream emptyStream = new ByteArrayOutputStream();
+//            blob.uploadFromStream(emptyStream);
+            try {
+                CloudAppendBlob appendBlob = container.getAppendBlobReference(name);
+                appendBlob.createOrReplace();
+                return appendBlob.openWriteNew()/*OpenWrite(true)*/;
+            } catch (Exception exception) {
+                // Azure Storage Emulator does not support append BLOBs,
+                // so we emulate appending
+                return new CCacheOutputStream(blob.openOutputStream());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -27,41 +50,4 @@ public class SampleAzureOutputDataHandler extends SampleAzureDataHandler impleme
     public OutputStream createStream(FileDescription fileDescription, SignOptions signOptions, SaveOptions saveOptions) {
         return null;
     }
-
-
-//    public SampleAzureOutputDataHandler(string endpoint,
-//                                        string accountName,
-//                                        string accountKey,
-//                                        string containerName) :
-//    base(endpoint, accountName, accountKey, containerName)
-//    {
-//    }
-//    public Stream CreateFile(FileDescription fileDescription, SignOptions signOptions = null,
-//                             SaveOptions saveOptions = null)
-//    {
-//        CloudBlobContainer container = GetContainerReference();
-//        string name = fileDescription.GUID.ToLower();
-//        CloudBlockBlob blob = container.GetBlockBlobReference(name);
-//        using (MemoryStream emptyStream = new MemoryStream())
-//        {
-//            blob.UploadFromStream(emptyStream);
-//        }
-//        try
-//        {
-//            CloudAppendBlob appendBlob = container.GetAppendBlobReference(name);
-//            appendBlob.CreateOrReplace();
-//            return appendBlob.OpenWrite(true);
-//        }
-//        catch (Microsoft.WindowsAzure.Storage.StorageException exception)
-//        {
-//            // Azure Storage Emulator does not support append BLOBs,
-//            // so we emulate appending
-//            return new CachingAzureStream(blob);
-//        }
-//    }
-//    public Stream CreateStream(FileDescription fileDescription, SignOptions signOptions = null,
-//                               SaveOptions saveOptions = null)
-//    {
-//        throw new NotImplementedException();
-//    }
 }
